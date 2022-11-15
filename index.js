@@ -55,14 +55,21 @@ if (submitBtn) {
     submitBtn.addEventListener("click", (e) => {
         e.preventDefault()
         let user = document.getElementById("username")
-        let comment = document.getElementById("userComment") 
-        let newComment = new Comment(user.value , comment.value)
-        let implement = new CommentImplementation()
-        implement.Add(newComment)
-        console.log(newComment)
-        user.value = ""
-        comment.value = ""
-        Display()
+        let comment = document.getElementById("userComment")
+        
+        if (user.value == "" || comment.value == "") {
+            alert("Enter all details properly")
+        } else {
+            let newComment = new Comment(user.value , comment.value)
+            let implement = new CommentImplementation()
+            implement.Add(newComment)
+            //console.log(newComment)
+            user.value = ""
+            comment.value = ""
+            Display()            
+        }
+        
+        
     })
 }
 
